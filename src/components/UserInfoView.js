@@ -1,11 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames/bind';
 
 import styles from './UserInfoView.module.scss';
-
-
-const cx = classNames.bind(styles);
 
 
 class UserInfoView extends React.Component {
@@ -47,8 +43,8 @@ class UserInfoView extends React.Component {
     const { name, isNameChanged } = this.state;
     const btnDisplayName = isNameChanged ? 'Submit' : 'Back';
     return (
-      <div className={cx('view')}>
-        <div className={cx('body')}>
+      <div className={styles.view}>
+        <div className={styles.body}>
           <label htmlFor="userNameInput">
             Name:
             <input

@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames/bind';
 
 import styles from './ChatInputView.module.scss';
 
-const cx = classNames.bind(styles);
 
 class ChatInputView extends React.Component {
   constructor(props) {
@@ -30,14 +28,14 @@ class ChatInputView extends React.Component {
     const { text } = this.state;
 
     return (
-      <div className={cx('view')}>
+      <div className={styles.view}>
         <input
-          className={cx('input')}
+          className={styles.input}
           type="text"
           value={text}
           onChange={this.handleChangeInput}
         />
-        <div className={cx('btn')}>
+        <div className={styles.btn}>
           <button type="submit" onClick={this.handleClickEnterButton}>Enter</button>
         </div>
       </div>

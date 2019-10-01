@@ -1,14 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames/bind';
 
 import WelcomeMessage from './WelcomeMessage';
 import UserMessage from './UserMessage';
 import JoinMessage from './JoinMessage';
 
 import styles from './ChatHistoryView.module.scss';
-
-const cx = classNames.bind(styles);
 
 
 class ChatHistoryView extends React.Component {
@@ -48,7 +45,7 @@ class ChatHistoryView extends React.Component {
     messageList.reverse();
 
     return (
-      <div className={cx('view')}>
+      <div className={styles.view}>
         {messageList}
         <div ref={this.messagesEndRef} />
       </div>

@@ -2,12 +2,8 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames/bind';
 
 import styles from './ChatUserListView.module.scss';
-
-
-const cx = classNames.bind(styles);
 
 
 class ChatUserListView extends React.Component {
@@ -41,7 +37,7 @@ class ChatUserListView extends React.Component {
 
     return (
       <div>
-        <ul className={cx('list')}>
+        <ul className={styles.list}>
           {userListItems}
         </ul>
       </div>
