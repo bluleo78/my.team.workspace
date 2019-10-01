@@ -1,0 +1,725 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots App default 1`] = `
+<div
+  className="view"
+>
+  <div
+    className="view__body"
+  >
+    <label
+      htmlFor="userNameInput"
+    >
+      Nick:
+      <input
+        onChange={[Function]}
+        type="text"
+      />
+    </label>
+    <br />
+    <button
+      onClick={[Function]}
+      type="submit"
+    >
+      Login
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Storyshots App shows ChatView after login 1`] = `
+<div
+  className="view"
+>
+  <div
+    className="view__body"
+  >
+    <div
+      className="view__body__center"
+    >
+      <div
+        className="view"
+      >
+        <div />
+      </div>
+    </div>
+    <div
+      className="view__body__right"
+    >
+      <div>
+        <p>
+          Me
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    className="view__footer"
+  >
+    <div
+      className="view"
+    >
+      <input
+        className="view__input"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+      <div
+        className="view__btn"
+      >
+        <button
+          onClick={[Function]}
+          type="submit"
+        >
+          Enter
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Button Emoji 1`] = `
+<button
+  onClick={[Function]}
+  style={
+    Object {
+      "backgroundColor": "#FFFFFF",
+      "border": "1px solid #eee",
+      "borderRadius": 3,
+      "cursor": "pointer",
+      "fontSize": 15,
+      "margin": 10,
+      "padding": "3px 10px",
+    }
+  }
+  type="button"
+>
+  <span
+    aria-label="so cool"
+    role="img"
+  >
+    😀 😎 👍 💯
+  </span>
+</button>
+`;
+
+exports[`Storyshots Button Text 1`] = `
+<button
+  onClick={[Function]}
+  style={
+    Object {
+      "backgroundColor": "#FFFFFF",
+      "border": "1px solid #eee",
+      "borderRadius": 3,
+      "cursor": "pointer",
+      "fontSize": 15,
+      "margin": 10,
+      "padding": "3px 10px",
+    }
+  }
+  type="button"
+>
+  Hello Button
+</button>
+`;
+
+exports[`Storyshots ChatHistoryView default 1`] = `
+<div
+  className="view"
+>
+  <div />
+</div>
+`;
+
+exports[`Storyshots ChatHistoryView show user message 1`] = `
+<div
+  className="view"
+>
+  <div>
+    <p>
+      Mary says "Hahah"
+    </p>
+  </div>
+  <div />
+</div>
+`;
+
+exports[`Storyshots ChatHistoryView shows a message in the view 1`] = `
+<div
+  style={
+    Object {
+      "height": 200,
+      "outlineStyle": "solid",
+      "width": 300,
+    }
+  }
+>
+  <div
+    className="view"
+  >
+    <div>
+      <p>
+        Tom says "Scroll"
+      </p>
+    </div>
+    <div />
+  </div>
+</div>
+`;
+
+exports[`Storyshots ChatHistoryView shows enough chats off the view 1`] = `
+<div
+  style={
+    Object {
+      "height": 200,
+      "outlineStyle": "solid",
+      "width": 300,
+    }
+  }
+>
+  <div
+    className="view"
+  >
+    <div>
+      <p>
+        Mary says "Scroll 9"
+      </p>
+    </div>
+    <div>
+      <p>
+        Mary says "Scroll 8"
+      </p>
+    </div>
+    <div>
+      <p>
+        Mary says "Scroll 7"
+      </p>
+    </div>
+    <div>
+      <p>
+        Mary says "Scroll 6"
+      </p>
+    </div>
+    <div>
+      <p>
+        Mary says "Scroll 5"
+      </p>
+    </div>
+    <div>
+      <p>
+        Mary says "Scroll 4"
+      </p>
+    </div>
+    <div>
+      <p>
+        Tom says "Scroll 3"
+      </p>
+    </div>
+    <div>
+      <p>
+        Tom says "Scroll 2"
+      </p>
+    </div>
+    <div>
+      <p>
+        Tom says "Scroll 1"
+      </p>
+    </div>
+    <div />
+  </div>
+</div>
+`;
+
+exports[`Storyshots ChatHistoryView shows join message 1`] = `
+<div
+  className="view"
+>
+  <div>
+    <p>
+      Mary has joined
+    </p>
+  </div>
+  <div />
+</div>
+`;
+
+exports[`Storyshots ChatHistoryView shows welcome message 1`] = `
+<div
+  className="view"
+>
+  <div>
+    <p>
+      Welcome, Mary. You have 0 messages
+    </p>
+  </div>
+  <div />
+</div>
+`;
+
+exports[`Storyshots ChatHistoryView shows welcome/join/user messages 1`] = `
+<div
+  className="view"
+>
+  <div>
+    <p>
+      Mary says "Hi Tom"
+    </p>
+  </div>
+  <div>
+    <p>
+      Tom says "Hi"
+    </p>
+  </div>
+  <div>
+    <p>
+      Tom has joined
+    </p>
+  </div>
+  <div>
+    <p>
+      Welcome, Mary. You have 0 messages
+    </p>
+  </div>
+  <div />
+</div>
+`;
+
+exports[`Storyshots ChatInputView default 1`] = `
+<div
+  className="view"
+>
+  <input
+    className="view__input"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <div
+    className="view__btn"
+  >
+    <button
+      onClick={[Function]}
+      type="submit"
+    >
+      Enter
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Storyshots ChatInputView shows input text 1`] = `
+<div
+  className="view"
+>
+  <input
+    className="view__input"
+    onChange={[Function]}
+    type="text"
+    value="Hello"
+  />
+  <div
+    className="view__btn"
+  >
+    <button
+      onClick={[Function]}
+      type="submit"
+    >
+      Enter
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Storyshots ChatUserListView default 1`] = `<div />`;
+
+exports[`Storyshots ChatUserListView show users including me 1`] = `
+<div>
+  <p>
+    Me
+  </p>
+  <p>
+    Mary
+  </p>
+</div>
+`;
+
+exports[`Storyshots ChatUserListView shows users 1`] = `
+<div>
+  <p>
+    Mary
+  </p>
+  <p>
+    Tom
+  </p>
+</div>
+`;
+
+exports[`Storyshots ChatView default 1`] = `
+<div
+  className="view"
+>
+  <div
+    className="view__body"
+  >
+    <div
+      className="view__body__center"
+    >
+      <div
+        className="view"
+      >
+        <div />
+      </div>
+    </div>
+    <div
+      className="view__body__right"
+    >
+      <div>
+        <p>
+          Me
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    className="view__footer"
+  >
+    <div
+      className="view"
+    >
+      <input
+        className="view__input"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+      <div
+        className="view__btn"
+      >
+        <button
+          onClick={[Function]}
+          type="submit"
+        >
+          Enter
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots ChatView shows multiple chats with users 1`] = `
+<div
+  className="view"
+>
+  <div
+    className="view__body"
+  >
+    <div
+      className="view__body__center"
+    >
+      <div
+        className="view"
+      >
+        <div>
+          <p>
+            Mary says "Hi Tom"
+          </p>
+        </div>
+        <div>
+          <p>
+            Tom says "Hi"
+          </p>
+        </div>
+        <div>
+          <p>
+            Tom has joined
+          </p>
+        </div>
+        <div>
+          <p>
+            Welcome, Mary. You have 0 messages
+          </p>
+        </div>
+        <div />
+      </div>
+    </div>
+    <div
+      className="view__body__right"
+    >
+      <div>
+        <p>
+          Me
+        </p>
+        <p>
+          Tom
+        </p>
+        <p>
+          Paul
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    className="view__footer"
+  >
+    <div
+      className="view"
+    >
+      <input
+        className="view__input"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+      <div
+        className="view__btn"
+      >
+        <button
+          onClick={[Function]}
+          type="submit"
+        >
+          Enter
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots JoinMessage default 1`] = `
+<div>
+  <p>
+    Mary has joined
+  </p>
+</div>
+`;
+
+exports[`Storyshots LoginView default 1`] = `
+<div
+  className="view"
+>
+  <div
+    className="view__body"
+  >
+    <label
+      htmlFor="userNameInput"
+    >
+      Nick:
+      <input
+        onChange={[Function]}
+        type="text"
+      />
+    </label>
+    <br />
+    <button
+      onClick={[Function]}
+      type="submit"
+    >
+      Login
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Storyshots UserMessage default 1`] = `
+<div>
+  <p>
+    Mary says "Hi Everyone!"
+  </p>
+</div>
+`;
+
+exports[`Storyshots Welcome To Storybook 1`] = `
+<article
+  style={
+    Object {
+      "backgroundColor": "#fff",
+      "fontFamily": "\\"Helvetica Neue\\", Helvetica, \\"Segoe UI\\", Arial, freesans, sans-serif",
+      "lineHeight": 1.4,
+      "padding": 15,
+    }
+  }
+>
+  <h1>
+    Welcome to storybook
+  </h1>
+  <p>
+    This is a UI component dev environment for your app.
+  </p>
+  <p>
+    We've added some basic stories inside the 
+    <code
+      style={
+        Object {
+          "backgroundColor": "#f3f2f2",
+          "border": "1px solid #eae9e9",
+          "borderRadius": 4,
+          "color": "#3a3a3a",
+          "fontSize": 15,
+          "fontWeight": 600,
+          "padding": "2px 5px",
+        }
+      }
+    >
+      src/stories
+    </code>
+     directory.
+    <br />
+    A story is a single state of one or more UI components. You can have as many stories as you want.
+    <br />
+    (Basically a story is like a visual test case.)
+  </p>
+  <p>
+    See these sample 
+    <button
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "borderBottom": "1px solid #1474f3",
+          "borderLeft": "none",
+          "borderRight": "none",
+          "borderTop": "none",
+          "color": "#1474f3",
+          "cursor": "pointer",
+          "font": "inherit",
+          "padding": 0,
+          "paddingBottom": 2,
+          "textDecoration": "none",
+        }
+      }
+      type="button"
+    >
+      stories
+    </button>
+     for a component called
+     
+    <code
+      style={
+        Object {
+          "backgroundColor": "#f3f2f2",
+          "border": "1px solid #eae9e9",
+          "borderRadius": 4,
+          "color": "#3a3a3a",
+          "fontSize": 15,
+          "fontWeight": 600,
+          "padding": "2px 5px",
+        }
+      }
+    >
+      Button
+    </code>
+    .
+  </p>
+  <p>
+    Just like that, you can add your own components as stories.
+    <br />
+    You can also edit those components and see changes right away.
+    <br />
+    (Try editing the 
+    <code
+      style={
+        Object {
+          "backgroundColor": "#f3f2f2",
+          "border": "1px solid #eae9e9",
+          "borderRadius": 4,
+          "color": "#3a3a3a",
+          "fontSize": 15,
+          "fontWeight": 600,
+          "padding": "2px 5px",
+        }
+      }
+    >
+      Button
+    </code>
+     stories located at
+     
+    <code
+      style={
+        Object {
+          "backgroundColor": "#f3f2f2",
+          "border": "1px solid #eae9e9",
+          "borderRadius": 4,
+          "color": "#3a3a3a",
+          "fontSize": 15,
+          "fontWeight": 600,
+          "padding": "2px 5px",
+        }
+      }
+    >
+      src/stories/index.js
+    </code>
+    .)
+  </p>
+  <p>
+    Usually we create stories with smaller UI components in the app.
+    <br />
+    Have a look at the
+     
+    <a
+      href="https://storybook.js.org/basics/writing-stories"
+      rel="noopener noreferrer"
+      style={
+        Object {
+          "borderBottom": "1px solid #1474f3",
+          "color": "#1474f3",
+          "paddingBottom": 2,
+          "textDecoration": "none",
+        }
+      }
+      target="_blank"
+    >
+      Writing Stories
+    </a>
+     
+    section in our documentation.
+  </p>
+  <p
+    style={
+      Object {
+        "opacity": 0.5,
+      }
+    }
+  >
+    <b>
+      NOTE:
+    </b>
+    <br />
+    Have a look at the 
+    <code
+      style={
+        Object {
+          "backgroundColor": "#f3f2f2",
+          "border": "1px solid #eae9e9",
+          "borderRadius": 4,
+          "color": "#3a3a3a",
+          "fontSize": 15,
+          "fontWeight": 600,
+          "padding": "2px 5px",
+        }
+      }
+    >
+      .storybook/webpack.config.js
+    </code>
+     to add webpack loaders and plugins you are using in this project.
+  </p>
+</article>
+`;
+
+exports[`Storyshots WelcomeMessage default 1`] = `
+<div>
+  <p>
+    Welcome, Mary. You have 0 messages
+  </p>
+</div>
+`;
+
+exports[`Storyshots WelcomeMessage shows welcome message with unread messages 1`] = `
+<div>
+  <p>
+    Welcome, Mary. You have 1 messages
+  </p>
+</div>
+`;

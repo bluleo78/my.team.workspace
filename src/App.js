@@ -1,26 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import PropTypes from 'prop-types';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import LoginView from './components/LoginView';
+import ChatView from './components/ChatView';
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      userName: '',
+      ...props.initialState,
+    };
+  }
+
+  handleSubmitLogin = (userName) => {
+    this.setState({ userName });
+  };
+
+  render() {
+    const { userName } = this.state;
+    return (
+      <>
+        {!userName ? (<LoginView onSubmitLogin={this.handleSubmitLogin} />) : null}
+        {userName ? (<ChatView userName={userName} />) : null}
+      </>
+    );
+  }
 }
+
+
+App.propTypes = {
+  initialState: PropTypes.shape({
+    userName: PropTypes.string,
+  }),
+};
+
+App.defaultProps = {
+  initialState: {},
+};
 
 export default App;

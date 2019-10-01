@@ -1,0 +1,16 @@
+.view {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  max-width: 300px;
+
+  .view__input {
+    flex: 1 1 100px;
+    margin-left: 5px
+  }
+  
+  .view__btn {
+    flex: 0 0 50px;
+    margin: 5px
+  }
+}

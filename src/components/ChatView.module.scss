@@ -1,0 +1,35 @@
+.view {
+  width: 300px;
+  min-height: 500px;
+  margin: 20px;
+
+  .view__body {
+    height: 450px;
+    margin: 10px;
+
+    .view__body__center {
+      width: 200px;
+      height: 450px;
+      outline-style: solid;
+      outline-width: thin;
+      float: left;
+    }
+
+    .view__body__right {
+      margin-left: 10px;
+      width: 70px;
+      height: 450px;
+      outline-style: solid;
+      outline-width: thin;
+      float: left,
+    }
+  }
+
+  .view__footer {
+    height: 50px;
+    outline-style: solid;
+    outline-width: thin;
+    margin: 10px;
+    float: none;
+  }
+}
