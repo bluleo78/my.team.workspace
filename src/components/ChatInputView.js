@@ -17,10 +17,10 @@ class ChatInputView extends React.Component {
 
 
   handleClickEnterButton=() => {
-    const { onSubmitMessage } = this.props;
+    const { currentUser, onSubmitMessage } = this.props;
     const { text, emotion } = this.state;
     this.setState({ text: '' });
-    onSubmitMessage(text, emotion);
+    onSubmitMessage(currentUser.name, text, emotion);
   }
 
 
@@ -45,6 +45,9 @@ class ChatInputView extends React.Component {
 
 
 ChatInputView.propTypes = {
+  currentUser: PropTypes.shape({
+    name: PropTypes.string,
+  }),
   initialState: PropTypes.shape({
     text: PropTypes.string,
     emotion: PropTypes.string,
@@ -53,6 +56,7 @@ ChatInputView.propTypes = {
 };
 
 ChatInputView.defaultProps = {
+  currentUser: {},
   initialState: {},
   onSubmitMessage: () => null,
 };

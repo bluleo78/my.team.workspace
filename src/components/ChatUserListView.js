@@ -3,8 +3,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { UserContext } from '../contexts';
-
 import './ChatUserListView.css';
 
 class ChatUserListView extends React.Component {
@@ -15,45 +13,26 @@ class ChatUserListView extends React.Component {
 
   render() {
     const {
-      selectedUserName, users = [], onSelectUser,
+      currentUser, users, onSelectUser,
     } = this.props;
-    const currentUser = this.context;
 
     function handleSelectListItem(e) {
-      onSelectUser(e.currentTarget.dataset.id);
+      onSelectUser(e.currentTarget.dataset.id, users);
     }
 
     const userListItems = users
-      .filter((user) => !currentUser || currentUser.name !== user.name)
       .map((user) => {
-        const selectedStyle = user.name === selectedUserName
-          ? 'user-list-view__item--selected' : null;
+        const dispName = currentUser && currentUser.name === user.name ? 'Me' : user.name;
         return (
           <li
             key={user.name}
-            className={selectedStyle}
             onClick={handleSelectListItem}
             data-id={user.name}
           >
-            {user.name}
+            {dispName}
           </li>
         );
       });
-
-    if (currentUser) {
-      const selectedStyle = currentUser.name === selectedUserName
-        ? 'user-list-view__item--selected' : null;
-      userListItems.splice(0, 0, (
-        <li
-          key={currentUser.name}
-          className={selectedStyle}
-          onClick={handleSelectListItem}
-          data-id={currentUser.name}
-        >
-          Me
-        </li>
-      ));
-    }
 
     return (
       <div>
@@ -65,19 +44,19 @@ class ChatUserListView extends React.Component {
   }
 }
 
-ChatUserListView.contextType = UserContext;
-
 ChatUserListView.propTypes = {
+  currentUser: PropTypes.shape({
+    name: PropTypes.string,
+  }),
   users: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
   })),
-  selectedUserName: PropTypes.string,
   onSelectUser: PropTypes.func,
 };
 
 ChatUserListView.defaultProps = {
+  currentUser: null,
   users: [],
-  selectedUserName: '',
   onSelectUser: () => null,
 };
 

@@ -1,37 +1,47 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { UserContext } from '../contexts';
-
-import styles from './LoginView.module.scss';
+import styles from './UserInfoView.module.scss';
 
 
 class UserInfoView extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { name: '' };
+    this.state = { name: '', isNameChanged: false, ...props.initialState };
+  }
+
+
+  componentDidMount = () => {
+    const { userInfo } = this.props;
+    this.setState({ name: userInfo.name });
   }
 
 
   handleChangeName=(e) => {
-    this.setState({ name: e.target.value });
+    this.setState({ name: e.target.value, isNameChanged: true });
   }
 
 
   handleClickButton=() => {
-    const { onChangeUser, selectedUserName } = this.props;
-    const { name } = this.state;
-    const currentUser = this.context;
+    const {
+      currentUser, userInfo, onSubmitChangeUserInfo, onGoBack,
+    } = this.props;
+    const { name, isNameChanged } = this.state;
 
-    onChangeUser(currentUser.name === selectedUserName ? name : null);
+    if (isNameChanged) {
+      onSubmitChangeUserInfo({
+        ...currentUser, name,
+      }, userInfo.name);
+    } else {
+      onGoBack();
+    }
   }
 
 
   render() {
-    const { selectedUserName } = this.props;
-    const { name } = this.state;
-    const currentUser = this.context;
-
+    const { currentUser, userInfo } = this.props;
+    const { name, isNameChanged } = this.state;
+    const btnDisplayName = isNameChanged ? 'Submit' : 'Back';
     return (
       <div className={styles.view}>
         <div className={styles.view__body}>
@@ -39,28 +49,39 @@ class UserInfoView extends React.Component {
             Name:
             <input
               type="text"
-              value={name || selectedUserName}
+              value={name || userInfo.name}
               onChange={this.handleChangeName}
-              disabled={currentUser.name === selectedUserName ? null : 'disabled'}
+              disabled={currentUser.name === userInfo.name ? null : 'disabled'}
             />
           </label>
           <br />
-          <button type="submit" onClick={this.handleClickButton}>{`${currentUser.name === selectedUserName ? 'Edit' : 'Ok'}`}</button>
+          <button type="submit" onClick={this.handleClickButton}>{btnDisplayName}</button>
         </div>
       </div>
     );
   }
 }
 
-UserInfoView.contextType = UserContext;
-
 UserInfoView.propTypes = {
-  selectedUserName: PropTypes.string.isRequired,
-  onChangeUser: PropTypes.func,
+  currentUser: PropTypes.shape({
+    name: PropTypes.string,
+  }),
+  userInfo: PropTypes.shape({
+    name: PropTypes.string,
+  }).isRequired,
+  onSubmitChangeUserInfo: PropTypes.func,
+  onGoBack: PropTypes.func,
+  initialState: PropTypes.shape({
+    name: PropTypes.string,
+    isNameChanged: PropTypes.bool,
+  }),
 };
 
 UserInfoView.defaultProps = {
-  onChangeUser: () => null,
+  currentUser: null,
+  onSubmitChangeUserInfo: () => null,
+  onGoBack: () => null,
+  initialState: {},
 };
 
 export default UserInfoView;

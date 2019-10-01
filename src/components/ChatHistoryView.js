@@ -6,7 +6,6 @@ import UserMessage from './UserMessage';
 import JoinMessage from './JoinMessage';
 
 import styles from './ChatHistoryView.module.scss';
-import { UserContext } from '../contexts';
 
 
 class ChatHistoryView extends React.Component {
@@ -30,8 +29,7 @@ class ChatHistoryView extends React.Component {
   }
 
   render() {
-    const { messages } = this.props;
-    const currentUser = this.context;
+    const { currentUser, messages } = this.props;
 
     const messageList = messages.map((msg) => {
       if (msg.type === 'welcome') {
@@ -55,9 +53,10 @@ class ChatHistoryView extends React.Component {
   }
 }
 
-ChatHistoryView.contextType = UserContext;
-
 ChatHistoryView.propTypes = {
+  currentUser: PropTypes.shape({
+    name: PropTypes.string,
+  }),
   messages: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     type: PropTypes.string.isRequired,
@@ -68,6 +67,7 @@ ChatHistoryView.propTypes = {
 };
 
 ChatHistoryView.defaultProps = {
+  currentUser: null,
   messages: [],
 };
 

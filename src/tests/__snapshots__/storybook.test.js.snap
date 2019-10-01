@@ -34,22 +34,48 @@ exports[`Storyshots App shows ChatView after login 1`] = `
   <div
     className="view__body"
   >
-    <label
-      htmlFor="userNameInput"
+    <div
+      className="view__body__center"
     >
-      Name:
+      <div
+        className="view"
+      >
+        <div />
+      </div>
+    </div>
+    <div
+      className="view__body__right"
+    >
+      <div>
+        <ul
+          className="user-list-view__list"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="view__footer"
+  >
+    <div
+      className="view"
+    >
       <input
+        className="view__input"
         onChange={[Function]}
         type="text"
+        value=""
       />
-    </label>
-    <br />
-    <button
-      onClick={[Function]}
-      type="submit"
-    >
-      Login
-    </button>
+      <div
+        className="view__btn"
+      >
+        <button
+          onClick={[Function]}
+          type="submit"
+        >
+          Enter
+        </button>
+      </div>
+    </div>
   </div>
 </div>
 `;
@@ -320,64 +346,16 @@ exports[`Storyshots ChatUserListView show users including me 1`] = `
     className="user-list-view__list"
   >
     <li
-      className={null}
-      data-id="Tom"
-      onClick={[Function]}
-    >
-      Me
-    </li>
-    <li
-      className={null}
       data-id="Mary"
       onClick={[Function]}
     >
       Mary
     </li>
-  </ul>
-</div>
-`;
-
-exports[`Storyshots ChatUserListView show users with selected me 1`] = `
-<div>
-  <ul
-    className="user-list-view__list"
-  >
     <li
-      className="user-list-view__item--selected"
       data-id="Tom"
       onClick={[Function]}
     >
       Me
-    </li>
-    <li
-      className={null}
-      data-id="Mary"
-      onClick={[Function]}
-    >
-      Mary
-    </li>
-  </ul>
-</div>
-`;
-
-exports[`Storyshots ChatUserListView show users with selected user 1`] = `
-<div>
-  <ul
-    className="user-list-view__list"
-  >
-    <li
-      className={null}
-      data-id="Tom"
-      onClick={[Function]}
-    >
-      Me
-    </li>
-    <li
-      className="user-list-view__item--selected"
-      data-id="Mary"
-      onClick={[Function]}
-    >
-      Mary
     </li>
   </ul>
 </div>
@@ -389,14 +367,12 @@ exports[`Storyshots ChatUserListView shows users 1`] = `
     className="user-list-view__list"
   >
     <li
-      className={null}
       data-id="Mary"
       onClick={[Function]}
     >
       Mary
     </li>
     <li
-      className={null}
       data-id="Tom"
       onClick={[Function]}
     >
@@ -430,7 +406,6 @@ exports[`Storyshots ChatView default 1`] = `
           className="user-list-view__list"
         >
           <li
-            className={null}
             data-id="Mary"
             onClick={[Function]}
           >
@@ -511,25 +486,22 @@ exports[`Storyshots ChatView shows multiple chats with users 1`] = `
           className="user-list-view__list"
         >
           <li
-            className={null}
-            data-id="Mary"
-            onClick={[Function]}
-          >
-            Me
-          </li>
-          <li
-            className={null}
             data-id="Tom"
             onClick={[Function]}
           >
             Tom
           </li>
           <li
-            className={null}
             data-id="Paul"
             onClick={[Function]}
           >
             Paul
+          </li>
+          <li
+            data-id="Mary"
+            onClick={[Function]}
+          >
+            Me
           </li>
         </ul>
       </div>
@@ -620,7 +592,7 @@ exports[`Storyshots UserInfoView default 1`] = `
       onClick={[Function]}
       type="submit"
     >
-      Edit
+      Submit
     </button>
   </div>
 </div>
@@ -649,7 +621,7 @@ exports[`Storyshots UserInfoView show user but not editable 1`] = `
       onClick={[Function]}
       type="submit"
     >
-      Ok
+      Back
     </button>
   </div>
 </div>

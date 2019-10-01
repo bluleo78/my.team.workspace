@@ -2,16 +2,11 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import UserInfoView from '../components/UserInfoView';
-import { UserContext } from '../contexts';
 
 storiesOf('UserInfoView', module)
   .add('default', () => (
-    <UserContext.Provider value={{ name: 'Mary' }}>
-      <UserInfoView selectedUserName="Mary" />
-    </UserContext.Provider>
+    <UserInfoView currentUser={{ name: 'Mary' }} userInfo={{ name: 'Mary' }} initialState={{ isNameChanged: true }} />
   ))
   .add('show user but not editable', () => (
-    <UserContext.Provider value={{ name: 'Tom' }}>
-      <UserInfoView selectedUserName="Mary" />
-    </UserContext.Provider>
+    <UserInfoView currentUser={{ name: 'Tom' }} userInfo={{ name: 'Mary' }} />
   ));
