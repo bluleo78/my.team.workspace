@@ -5,7 +5,7 @@ exports[`Storyshots App default 1`] = `
   className="view"
 >
   <div
-    className="view__body"
+    className="body"
   >
     <label
       htmlFor="userNameInput"
@@ -32,10 +32,10 @@ exports[`Storyshots App shows ChatView after login 1`] = `
   className="view"
 >
   <div
-    className="view__body"
+    className="body"
   >
     <div
-      className="view__body__center"
+      className="center"
     >
       <div
         className="view"
@@ -44,11 +44,11 @@ exports[`Storyshots App shows ChatView after login 1`] = `
       </div>
     </div>
     <div
-      className="view__body__right"
+      className="right"
     >
       <div>
         <ul
-          className="user-list-view__list"
+          className="list"
         >
           <li
             data-id="Robot"
@@ -61,19 +61,19 @@ exports[`Storyshots App shows ChatView after login 1`] = `
     </div>
   </div>
   <div
-    className="view__footer"
+    className="footer"
   >
     <div
       className="view"
     >
       <input
-        className="view__input"
+        className="input"
         onChange={[Function]}
         type="text"
         value=""
       />
       <div
-        className="view__btn"
+        className="btn"
       >
         <button
           onClick={[Function]}
@@ -298,13 +298,13 @@ exports[`Storyshots ChatInputView default 1`] = `
   className="view"
 >
   <input
-    className="view__input"
+    className="input"
     onChange={[Function]}
     type="text"
     value=""
   />
   <div
-    className="view__btn"
+    className="btn"
   >
     <button
       onClick={[Function]}
@@ -321,13 +321,13 @@ exports[`Storyshots ChatInputView shows input text 1`] = `
   className="view"
 >
   <input
-    className="view__input"
+    className="input"
     onChange={[Function]}
     type="text"
     value="Hello"
   />
   <div
-    className="view__btn"
+    className="btn"
   >
     <button
       onClick={[Function]}
@@ -342,7 +342,7 @@ exports[`Storyshots ChatInputView shows input text 1`] = `
 exports[`Storyshots ChatUserListView default 1`] = `
 <div>
   <ul
-    className="user-list-view__list"
+    className="list"
   />
 </div>
 `;
@@ -350,7 +350,7 @@ exports[`Storyshots ChatUserListView default 1`] = `
 exports[`Storyshots ChatUserListView show users including me 1`] = `
 <div>
   <ul
-    className="user-list-view__list"
+    className="list"
   >
     <li
       data-id="Mary"
@@ -371,7 +371,7 @@ exports[`Storyshots ChatUserListView show users including me 1`] = `
 exports[`Storyshots ChatUserListView shows users 1`] = `
 <div>
   <ul
-    className="user-list-view__list"
+    className="list"
   >
     <li
       data-id="Mary"
@@ -394,10 +394,10 @@ exports[`Storyshots ChatView default 1`] = `
   className="view"
 >
   <div
-    className="view__body"
+    className="body"
   >
     <div
-      className="view__body__center"
+      className="center"
     >
       <div
         className="view"
@@ -406,11 +406,11 @@ exports[`Storyshots ChatView default 1`] = `
       </div>
     </div>
     <div
-      className="view__body__right"
+      className="right"
     >
       <div>
         <ul
-          className="user-list-view__list"
+          className="list"
         >
           <li
             data-id="Mary"
@@ -423,19 +423,19 @@ exports[`Storyshots ChatView default 1`] = `
     </div>
   </div>
   <div
-    className="view__footer"
+    className="footer"
   >
     <div
       className="view"
     >
       <input
-        className="view__input"
+        className="input"
         onChange={[Function]}
         type="text"
         value=""
       />
       <div
-        className="view__btn"
+        className="btn"
       >
         <button
           onClick={[Function]}
@@ -454,10 +454,10 @@ exports[`Storyshots ChatView shows multiple chats with users 1`] = `
   className="view"
 >
   <div
-    className="view__body"
+    className="body"
   >
     <div
-      className="view__body__center"
+      className="center"
     >
       <div
         className="view"
@@ -486,11 +486,11 @@ exports[`Storyshots ChatView shows multiple chats with users 1`] = `
       </div>
     </div>
     <div
-      className="view__body__right"
+      className="right"
     >
       <div>
         <ul
-          className="user-list-view__list"
+          className="list"
         >
           <li
             data-id="Tom"
@@ -515,19 +515,19 @@ exports[`Storyshots ChatView shows multiple chats with users 1`] = `
     </div>
   </div>
   <div
-    className="view__footer"
+    className="footer"
   >
     <div
       className="view"
     >
       <input
-        className="view__input"
+        className="input"
         onChange={[Function]}
         type="text"
         value=""
       />
       <div
-        className="view__btn"
+        className="btn"
       >
         <button
           onClick={[Function]}
@@ -554,7 +554,7 @@ exports[`Storyshots LoginView default 1`] = `
   className="view"
 >
   <div
-    className="view__body"
+    className="body"
   >
     <label
       htmlFor="userNameInput"
@@ -581,7 +581,7 @@ exports[`Storyshots UserInfoView default 1`] = `
   className="view"
 >
   <div
-    className="view__body"
+    className="body"
   >
     <label
       htmlFor="userNameInput"
@@ -610,7 +610,7 @@ exports[`Storyshots UserInfoView show user but not editable 1`] = `
   className="view"
 >
   <div
-    className="view__body"
+    className="body"
   >
     <label
       htmlFor="userNameInput"

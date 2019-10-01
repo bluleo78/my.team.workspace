@@ -1,7 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames/bind';
 
 import styles from './LoginView.module.scss';
+
+
+const cx = classNames.bind(styles);
 
 
 class LoginView extends React.Component {
@@ -27,8 +31,8 @@ class LoginView extends React.Component {
 
   render() {
     return (
-      <div className={styles.view}>
-        <div className={styles.view__body}>
+      <div className={cx('view')}>
+        <div className={cx('body')}>
           <label htmlFor="userNameInput">
             Name:
             <input

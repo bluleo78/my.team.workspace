@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames/bind';
 
 import ChatHistoryView from '../containers/ChatHistoryView';
 import ChatUserListView from '../containers/ChatUserListView';
@@ -7,18 +8,21 @@ import ChatInputView from '../containers/ChatInputView';
 import styles from './ChatView.module.scss';
 
 
+const cx = classNames.bind(styles);
+
+
 function ChatView() {
   return (
-    <div className={styles.view}>
-      <div className={styles.view__body}>
-        <div className={styles.view__body__center}>
+    <div className={cx('view')}>
+      <div className={cx('body')}>
+        <div className={cx('center')}>
           <ChatHistoryView />
         </div>
-        <div className={styles.view__body__right}>
+        <div className={cx('right')}>
           <ChatUserListView />
         </div>
       </div>
-      <div className={styles.view__footer}>
+      <div className={cx('footer')}>
         <ChatInputView />
       </div>
     </div>
