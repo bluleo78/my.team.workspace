@@ -2,20 +2,23 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import ChatView from '../components/ChatView';
+import { UserContext } from '../contexts';
 
 storiesOf('ChatView', module)
-  .add('default', () => <ChatView userName="Mary" />)
+  .add('default', () => (
+    <UserContext.Provider value={{ name: 'Mary' }}>
+      <ChatView />
+    </UserContext.Provider>
+  ))
   .add('shows multiple chats with users', () => (
-    <ChatView
-      userName="Mary"
-      initialState={{
-        currentUser: { name: 'Mary' },
-        users: [
+    <UserContext.Provider value={{ name: 'Mary' }}>
+      <ChatView
+        users={[
           { name: 'Tom' },
           { name: 'Paul' },
           { name: 'Mary' },
-        ],
-        messages: [
+        ]}
+        messages={[
           {
             id: 1, type: 'welcome', receiver: 'Mary',
           },
@@ -28,7 +31,7 @@ storiesOf('ChatView', module)
           {
             id: 4, type: 'user', sender: 'Mary', text: 'Hi Tom',
           },
-        ],
-      }}
-    />
+        ]}
+      />
+    </UserContext.Provider>
   ));

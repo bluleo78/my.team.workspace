@@ -1,0 +1,8 @@
+.user-list-view__list {
+  list-style-type: none;
+  padding-inline-start: 10px;
+}
+
+.user-list-view__item--selected {
+  background-color: red;
+}

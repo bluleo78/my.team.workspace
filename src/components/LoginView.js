@@ -30,7 +30,7 @@ class LoginView extends React.Component {
       <div className={styles.view}>
         <div className={styles.view__body}>
           <label htmlFor="userNameInput">
-            Nick:
+            Name:
             <input
               type="text"
               onChange={this.handleChange}
