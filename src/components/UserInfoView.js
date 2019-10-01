@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from '@material-ui/core/Button';
 
 import styles from './UserInfoView.module.scss';
 
@@ -55,7 +56,7 @@ class UserInfoView extends React.Component {
             />
           </label>
           <br />
-          <button type="submit" onClick={this.handleClickButton}>{btnDisplayName}</button>
+          <Button variant="contained" color="primary" onClick={this.handleClickButton}>{btnDisplayName}</Button>
         </div>
       </div>
     );

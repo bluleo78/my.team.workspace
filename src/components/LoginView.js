@@ -1,7 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Avatar from '@material-ui/core/Avatar';
+import Typography from '@material-ui/core/Typography';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Container from '@material-ui/core/Container';
+import { withStyles } from '@material-ui/core/styles';
 
-import styles from './LoginView.module.scss';
+const styles = (theme) => ({
+  '@global': {
+    body: {
+      backgroundColor: theme.palette.common.white,
+    },
+  },
+  container: {
+    marginTop: theme.spacing(8),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: theme.palette.secondary.main,
+  },
+  form: {
+    width: '100%',
+    marginTop: theme.spacing(1),
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+  },
+});
 
 
 class LoginView extends React.Component {
@@ -26,26 +56,61 @@ class LoginView extends React.Component {
 
 
   render() {
+    const { classes } = this.props;
+
     return (
-      <div className={styles.view}>
-        <div className={styles.body}>
-          <label htmlFor="userNameInput">
-            Name:
-            <input
-              type="text"
-              onChange={this.handleChange}
-            />
-          </label>
-          <br />
-          <button type="submit" onClick={this.handleClickButton}>Login</button>
-        </div>
-      </div>
+      <Container maxWidth="xs" className={classes.container}>
+        <Avatar className={classes.avatar}>
+          <LockOutlinedIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5">
+          Sign in
+        </Typography>
+        <form className={classes.form} noValidate>
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="userId"
+            label="User ID"
+            name="userId"
+            autoFocus
+            onChange={this.handleChange}
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            fullWidth
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+          />
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+            onClick={this.handleClickButton}
+          >
+            Sign In
+          </Button>
+        </form>
+      </Container>
     );
   }
 }
 
 
 LoginView.propTypes = {
+  classes: PropTypes.shape({
+    container: PropTypes.string,
+    avatar: PropTypes.string,
+    form: PropTypes.string,
+    submit: PropTypes.string,
+  }).isRequired,
   onSubmitLogin: PropTypes.func,
 };
 
@@ -53,4 +118,4 @@ LoginView.defaultProps = {
   onSubmitLogin: () => null,
 };
 
-export default LoginView;
+export default withStyles(styles)(LoginView);
