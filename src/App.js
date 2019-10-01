@@ -5,16 +5,29 @@ import PropTypes from 'prop-types';
 import LoginView from './containers/LoginView';
 import ChatView from './components/ChatView';
 import UserInfoView from './containers/UserInfoView';
+import { fetchNewMessage, addUser } from './actions';
 
-function App(props) {
-  const { currentUser, userInfo } = props;
-  return (
-    <>
-      {!currentUser ? (<LoginView />) : null}
-      {currentUser && !userInfo ? (<ChatView />) : null}
-      {currentUser && userInfo ? (<UserInfoView />) : null}
-    </>
-  );
+
+class App extends React.Component {
+  componentDidMount() {
+    const { fetchNewMessageFromServer, prepareRobot } = this.props;
+
+    prepareRobot();
+
+    setInterval(() => fetchNewMessageFromServer(), 5000);
+  }
+
+
+  render() {
+    const { currentUser, userInfo } = this.props;
+    return (
+      <>
+        {!currentUser ? (<LoginView />) : null}
+        {currentUser && !userInfo ? (<ChatView />) : null}
+        {currentUser && userInfo ? (<UserInfoView />) : null}
+      </>
+    );
+  }
 }
 
 App.propTypes = {
@@ -24,11 +37,15 @@ App.propTypes = {
   userInfo: PropTypes.shape({
     name: PropTypes.string,
   }),
+  fetchNewMessageFromServer: PropTypes.func,
+  prepareRobot: PropTypes.func,
 };
 
 App.defaultProps = {
   currentUser: null,
   userInfo: null,
+  fetchNewMessageFromServer: () => null,
+  prepareRobot: () => null,
 };
 
 function mapStateToProps(state) {
@@ -38,4 +55,12 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(App);
+
+function mapDispatchToProps(dispatch) {
+  return {
+    fetchNewMessageFromServer: () => dispatch(fetchNewMessage()),
+    prepareRobot: () => dispatch(addUser({ name: 'Robot' })),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

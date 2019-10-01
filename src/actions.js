@@ -25,6 +25,20 @@ export function addMessage(message) {
 }
 
 
+export function fetchNewMessage() {
+  return (dispatch) => {
+    setTimeout(() => {
+      dispatch(addMessage({
+        id: new Date().getTime(),
+        type: 'user',
+        sender: 'Robot',
+        text: new Date().toTimeString(),
+      }));
+    }, 1000);
+  };
+}
+
+
 export function showUserInfo(userInfo) {
   return {
     type: SHOW_USER_INFO,

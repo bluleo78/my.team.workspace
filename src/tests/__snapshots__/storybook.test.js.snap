@@ -49,7 +49,14 @@ exports[`Storyshots App shows ChatView after login 1`] = `
       <div>
         <ul
           className="user-list-view__list"
-        />
+        >
+          <li
+            data-id="Robot"
+            onClick={[Function]}
+          >
+            Robot
+          </li>
+        </ul>
       </div>
     </div>
   </div>
