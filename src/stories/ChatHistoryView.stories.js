@@ -45,7 +45,7 @@ storiesOf('ChatHistoryView', module)
     />
   ))
   .add('shows enough chats off the view', () => (
-    <div style={{ width: 300, height: 200, outlineStyle: 'solid' }}>
+    <div style={{ width: 500, height: 200, outlineStyle: 'solid' }}>
       <ChatHistoryView
         currentUser={{ name: 'Mary' }}
         messages={[
@@ -81,7 +81,7 @@ storiesOf('ChatHistoryView', module)
     </div>
   ))
   .add('shows a message in the view', () => (
-    <div style={{ width: 300, height: 200, outlineStyle: 'solid' }}>
+    <div style={{ width: 500, height: 200, outlineStyle: 'solid' }}>
       <ChatHistoryView
         currentUser={{ name: 'Mary' }}
         messages={[

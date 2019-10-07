@@ -1,12 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Grid from '@material-ui/core/Grid';
+import { withStyles } from '@material-ui/core/styles';
 
 import WelcomeMessage from './WelcomeMessage';
 import UserMessage from './UserMessage';
 import JoinMessage from './JoinMessage';
 
-import styles from './ChatHistoryView.module.scss';
 
+const styles = (theme) => ({
+  container: {
+    height: '100%',
+    flexWrap: 'nowrap',
+    overflowY: 'auto',
+    padding: theme.spacing(2, 2),
+  },
+});
 
 class ChatHistoryView extends React.Component {
   constructor(props) {
@@ -29,26 +38,38 @@ class ChatHistoryView extends React.Component {
   }
 
   render() {
-    const { currentUser, messages } = this.props;
-
+    const { currentUser, messages, classes } = this.props;
     const messageList = messages.map((msg) => {
       if (msg.type === 'welcome') {
         if (currentUser && msg.receiver === currentUser.name) {
-          return (<WelcomeMessage key={msg.id} name={currentUser.name} unreadMsgCnt={0} />);
+          return (
+            <Grid item key={msg.id}>
+              <WelcomeMessage name={currentUser.name} unreadMsgCnt={0} />
+            </Grid>
+          );
         }
 
-        return (<JoinMessage key={msg.id} name={msg.receiver} />);
+        return (
+          <Grid item key={msg.id}>
+            <JoinMessage name={msg.receiver} />
+          </Grid>
+        );
       }
 
-      return (<UserMessage key={msg.id} name={msg.sender} text={msg.text} emotion={msg.emotion} />);
+      const isMe = currentUser && msg.sender === currentUser.name;
+      return (
+        <Grid item key={msg.id}>
+          <UserMessage name={msg.sender} text={msg.text} emotion={msg.emotion} isMe={isMe} />
+        </Grid>
+      );
     });
     messageList.reverse();
 
     return (
-      <div className={styles.view}>
+      <Grid container direction="column-reverse" spacing={1} className={classes.container}>
         {messageList}
-        <div ref={this.messagesEndRef} />
-      </div>
+        <Grid ref={this.messagesEndRef} />
+      </Grid>
     );
   }
 }
@@ -64,11 +85,15 @@ ChatHistoryView.propTypes = {
     receiver: PropTypes.string,
     text: PropTypes.string,
   })),
+  classes: PropTypes.shape({
+    container: PropTypes.string,
+  }),
 };
 
 ChatHistoryView.defaultProps = {
   currentUser: null,
   messages: [],
+  classes: {},
 };
 
-export default ChatHistoryView;
+export default withStyles(styles)(ChatHistoryView);

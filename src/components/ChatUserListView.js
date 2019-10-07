@@ -1,9 +1,20 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import PropTypes from 'prop-types';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import Avatar from '@material-ui/core/Avatar';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import PersonIcon from '@material-ui/icons/Person';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import ListItemText from '@material-ui/core/ListItemText';
+import Container from '@material-ui/core/Container';
+import { withStyles } from '@material-ui/core/styles';
 
-import styles from './ChatUserListView.module.scss';
+const styles = () => ({
+  myAvatar: {
+    backgroundColor: 'lime',
+  },
+});
 
 
 class ChatUserListView extends React.Component {
@@ -15,6 +26,7 @@ class ChatUserListView extends React.Component {
   render() {
     const {
       currentUser, users, onSelectUser,
+      classes,
     } = this.props;
 
     function handleSelectListItem(e) {
@@ -23,24 +35,25 @@ class ChatUserListView extends React.Component {
 
     const userListItems = users
       .map((user) => {
-        const dispName = currentUser && currentUser.name === user.name ? 'Me' : user.name;
+        const isMe = currentUser && currentUser.name === user.name;
         return (
-          <li
-            key={user.name}
-            onClick={handleSelectListItem}
-            data-id={user.name}
-          >
-            {dispName}
-          </li>
+          <ListItem key={user.name} onClick={handleSelectListItem}>
+            <ListItemAvatar>
+              <Avatar className={isMe ? classes.myAvatar : null}>
+                {isMe ? <AccountCircleIcon /> : <PersonIcon />}
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary={isMe ? 'Me' : user.name} />
+          </ListItem>
         );
       });
 
     return (
-      <div>
-        <ul className={styles.list}>
+      <Container>
+        <List>
           {userListItems}
-        </ul>
-      </div>
+        </List>
+      </Container>
     );
   }
 }
@@ -53,6 +66,9 @@ ChatUserListView.propTypes = {
     name: PropTypes.string.isRequired,
   })),
   onSelectUser: PropTypes.func,
+  classes: PropTypes.shape({
+    myAvatar: PropTypes.string,
+  }).isRequired,
 };
 
 ChatUserListView.defaultProps = {
@@ -61,4 +77,4 @@ ChatUserListView.defaultProps = {
   onSelectUser: () => null,
 };
 
-export default ChatUserListView;
+export default withStyles(styles)(ChatUserListView);

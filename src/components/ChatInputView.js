@@ -1,8 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import TextField from '@material-ui/core/TextField';
+import { withStyles } from '@material-ui/core/styles';
 
-import styles from './ChatInputView.module.scss';
-
+const styles = () => ({
+  button: {
+    height: '100%',
+  },
+});
 
 class ChatInputView extends React.Component {
   constructor(props) {
@@ -25,20 +32,33 @@ class ChatInputView extends React.Component {
 
 
   render() {
+    const { classes } = this.props;
     const { text } = this.state;
 
     return (
-      <div className={styles.view}>
-        <input
-          className={styles.input}
-          type="text"
-          value={text}
-          onChange={this.handleChangeInput}
-        />
-        <div className={styles.btn}>
-          <button type="submit" onClick={this.handleClickEnterButton}>Enter</button>
-        </div>
-      </div>
+      <Grid container spacing={1} alignItems="stretch">
+        <Grid item xs>
+          <TextField
+            variant="outlined"
+            type="text"
+            fullWidth
+            value={text}
+            onChange={this.handleChangeInput}
+          />
+        </Grid>
+        <Grid item xs={1}>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            onClick={this.handleClickEnterButton}
+            className={classes.button}
+          >
+            Enter
+          </Button>
+        </Grid>
+      </Grid>
     );
   }
 }
@@ -53,6 +73,9 @@ ChatInputView.propTypes = {
     emotion: PropTypes.string,
   }),
   onSubmitMessage: PropTypes.func,
+  classes: PropTypes.shape({
+    button: PropTypes.string,
+  }).isRequired,
 };
 
 ChatInputView.defaultProps = {
@@ -61,4 +84,4 @@ ChatInputView.defaultProps = {
   onSubmitMessage: () => null,
 };
 
-export default ChatInputView;
+export default withStyles(styles)(ChatInputView);
