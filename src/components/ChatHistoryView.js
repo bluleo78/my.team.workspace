@@ -67,8 +67,8 @@ class ChatHistoryView extends React.Component {
 
     return (
       <Grid container direction="column-reverse" spacing={1} className={classes.container}>
-        {messageList}
         <Grid ref={this.messagesEndRef} />
+        {messageList}
       </Grid>
     );
   }

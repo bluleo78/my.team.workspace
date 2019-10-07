@@ -29,15 +29,15 @@ class ChatUserListView extends React.Component {
       classes,
     } = this.props;
 
-    function handleSelectListItem(e) {
-      onSelectUser(e.currentTarget.dataset.id, users);
+    function handleSelectListItem(name) {
+      onSelectUser(name, users);
     }
 
     const userListItems = users
       .map((user) => {
         const isMe = currentUser && currentUser.name === user.name;
         return (
-          <ListItem key={user.name} onClick={handleSelectListItem}>
+          <ListItem key={user.name} onClick={() => handleSelectListItem(user.name)}>
             <ListItemAvatar>
               <Avatar className={isMe ? classes.myAvatar : null}>
                 {isMe ? <AccountCircleIcon /> : <PersonIcon />}

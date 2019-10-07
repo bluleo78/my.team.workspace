@@ -1,9 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import TextField from '@material-ui/core/TextField';
 
-import styles from './UserInfoView.module.scss';
+import { withStyles } from '@material-ui/core/styles';
 
+import logoImage from '../images/logo192.png';
+
+const styles = (theme) => ({
+  container: {
+    marginTop: theme.spacing(8),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  form: {
+    width: '100%',
+    marginTop: theme.spacing(1),
+  },
+});
 
 class UserInfoView extends React.Component {
   constructor(props) {
@@ -40,25 +60,42 @@ class UserInfoView extends React.Component {
 
 
   render() {
-    const { currentUser, userInfo } = this.props;
+    const { currentUser, userInfo, classes } = this.props;
     const { name, isNameChanged } = this.state;
     const btnDisplayName = isNameChanged ? 'Submit' : 'Back';
     return (
-      <div className={styles.view}>
-        <div className={styles.body}>
-          <label htmlFor="userNameInput">
-            Name:
-            <input
-              type="text"
-              value={name || userInfo.name}
-              onChange={this.handleChangeName}
-              disabled={currentUser.name === userInfo.name ? null : 'disabled'}
-            />
-          </label>
-          <br />
+      <Container maxWidth="xs" className={classes.container}>
+        <form className={classes.form} noValidate>
+          <Card>
+            <CardActionArea>
+              <CardMedia
+                component="img"
+                image={logoImage}
+                title="Contemplative Reptile"
+              />
+            </CardActionArea>
+            <CardActions>
+              <Button size="small" color="primary" disabled>
+                Edit
+              </Button>
+            </CardActions>
+          </Card>
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="Name"
+            label="Name"
+            name="Name"
+            autoFocus
+            value={name || userInfo.name}
+            onChange={this.handleChangeName}
+            disabled={currentUser.name === userInfo.name}
+          />
           <Button variant="contained" color="primary" onClick={this.handleClickButton}>{btnDisplayName}</Button>
-        </div>
-      </div>
+        </form>
+      </Container>
     );
   }
 }
@@ -76,6 +113,10 @@ UserInfoView.propTypes = {
     name: PropTypes.string,
     isNameChanged: PropTypes.bool,
   }),
+  classes: PropTypes.shape({
+    container: PropTypes.string,
+    form: PropTypes.string,
+  }).isRequired,
 };
 
 UserInfoView.defaultProps = {
@@ -85,4 +126,4 @@ UserInfoView.defaultProps = {
   initialState: {},
 };
 
-export default UserInfoView;
+export default withStyles(styles)(UserInfoView);
